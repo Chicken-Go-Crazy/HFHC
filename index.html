@@ -1,9 +1,356 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Healthy Father's Healthy Children Corp.</title>
- <link rel="icon" type="image/x-icon" href="/Icon.jpg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Healthy Father's Healthy Children Corp</title>
+<link rel="icon" type="image/x-icon" href="/Icon.jpg">
+<style>
+:root{
+  --accent:#2f6b4d;
+  --warm:#a36b2f;
+  --muted:#6b6b6b;
+  --card:#fff;
+  --glass: rgba(255,255,255,0.85);
+  --shadow: 0 6px 20px rgba(0,0,0,0.12);
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background-image:url('https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/313415800_1054898668514386_5067443696725260199_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=110&ccb=1-7&_nc_sid=536f4a&_nc_ohc=2k1dHFYjtloQ7kNvwFDd-Fi&_nc_oc=Adl-r4SSC0fzEGfhY3SJqzg_Y1LVbs5-dAhcRbGVSqscH5a8v85ZHrjiAtdm7CPqCIs&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&_nc_gid=gGrXMjLLKe-eOozjZpu8Xw&oh=00_AfgmaxBrLVviWqmA2JA25zJN3Z0E3IUE22NZ6BgkvsVsCw&oe=69199C51');
+  background-size:cover;
+  background-position:center;
+  color:#222;
+  line-height:1.45;
+  padding-bottom:60px;
+}
+.app{
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+  min-height:100vh;
+  padding:28px;
+}
+.header{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+  position:relative;
+}
+.logo{
+  width:84px;
+  height:84px;
+  border-radius:12px;
+  overflow:hidden;
+  flex-shrink:0;
+  box-shadow:var(--shadow);
+  background:#fff;
+  display:grid;
+  place-items:center;
+}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+.brand{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.brand h1{
+  margin:0;
+  font-size:1.35rem;
+  letter-spacing:0.2px;
+  color:var(--accent);
+}
+.brand p{
+  margin:3px 0 0 0;
+  font-size:0.9rem;
+  color:var(--muted);
+}
+.nav{
+  margin-left:auto;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.button{
+  background:transparent;
+  border:1px solid rgba(0,0,0,0.08);
+  padding:9px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+}
+.cta{
+  background:linear-gradient(90deg,var(--accent),#3d8b63);
+  color:#fff;
+  border:0;
+  box-shadow:0 8px 24px rgba(47,107,77,0.18);
+}
+.hero{
+  max-width:1100px;
+  margin:26px auto 10px;
+  display:grid;
+  grid-template-columns:1fr 360px;
+  gap:22px;
+  align-items:stretch;
+}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+.hero-left h2{
+  margin:0 0 8px 0;
+  color:#25322a;
+  font-size:1.5rem;
+}
+.lead{
+  color:#444;
+  font-size:1.05rem;
+  margin-bottom:14px;
+}
+.quick-stats{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.stat{
+  background:linear-gradient(180deg,#fbfbfb,#fff);
+  padding:10px 12px;
+  border-radius:10px;
+  flex:1 1 120px;
+  min-width:120px;
+  text-align:center;
+}
+.stat h3{margin:0;color:var(--warm);font-size:1.25rem}
+.stat p{margin:6px 0 0 0;color:var(--muted);font-size:0.85rem}
+.hero-right{display:flex;flex-direction:column;gap:10px}
+.event{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.event img{width:80px;height:80px;border-radius:10px;object-fit:cover}
+.event .meta{flex:1}
+.event .meta h4{margin:0 0 4px 0;font-size:1rem;color:#2b2b2b}
+.event .meta p{margin:0;font-size:0.9rem;color:var(--muted)}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+.program{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.program svg{width:46px;height:46px;border-radius:10px;padding:8px;background:linear-gradient(180deg,#fff,#fafafa);box-shadow:0 6px 16px rgba(0,0,0,0.06)}
+.program h4{margin:0 0 6px 0}
+.program p{margin:0;color:var(--muted);font-size:0.95rem}
+.section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.section-title h3{margin:0;color:#2e2e2e}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.gallery img{width:100%;height:120px;object-fit:cover;border-radius:10px;cursor:pointer;display:block}
+.info{
+  max-width:1100px;
+  margin:22px auto;
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:18px;
+}
+.side{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.small-card{padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff,#f9f9f9)}
+.badge{display:inline-block;padding:6px 8px;border-radius:8px;background:rgba(43,107,77,0.08);color:var(--accent);font-weight:700}
+.form input, .form textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid #e6e6e6;
+  font-size:0.95rem;
+}
+.form button{
+  margin-top:10px;
+  padding:10px 14px;
+  border-radius:10px;
+  border:0;
+  background:linear-gradient(90deg,var(--warm),#c27a3f);
+  color:#fff;
+  cursor:pointer;
+  font-weight:700;
+}
+.footer{
+  max-width:1100px;
+  margin:28px auto 0;
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:center;
+  color:#444;
+  font-size:0.95rem;
+}
+.footer a{color:var(--accent);text-decoration:none}
+.kv{display:flex;gap:12px;align-items:center}
+.kv div{background:#fff;padding:10px;border-radius:10px;box-shadow:var(--shadow);min-width:120px;text-align:center}
+.carousel{position:relative;overflow:hidden;border-radius:12px}
+.slides{display:flex;transition:transform 350ms ease}
+.slide{min-width:100%;padding:20px;background:linear-gradient(180deg,#fff,#fbfbfb)}
+.floating{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  z-index:999;
+}
+.fab{width:56px;height:56px;border-radius:14px;background:linear-gradient(90deg,var(--accent),#3d8b63);display:grid;place-items:center;color:#fff;border:0;cursor:pointer;box-shadow:0 12px 30px rgba(47,107,77,0.22)}
+.badge-cta{background:linear-gradient(90deg,#ffd17a,#ffb86b);padding:8px 12px;border-radius:12px;font-weight:800;color:#6b3d06}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer}
+.hamburger div{width:28px;height:3px;background:#2f6b4d;border-radius:2px}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-bottom:6px}
+  .info{grid-template-columns:1fr}
+  .header{padding-bottom:10px}
+  .nav{display:none;flex-direction:column;background:var(--glass);position:absolute;top:70px;right:18px;padding:10px;border-radius:10px;}
+  .nav.show{display:flex}
+  .hamburger{display:flex}
+}
+</style>
 </head>
 <body>
-<h1> Healthy Father's Healthy Children Corp.</h1>
+<div class="app" id="app">
+  <header class="header">
+    <div class="logo"><img src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/480450847_1532265397444375_7870922610841435621_n.jpg?stp=dst-jpg_p75x225_tt6&_nc_cat=103&ccb=1-7&_nc_sid=536f4a&_nc_ohc=dEb8GIgsO7YQ7kNvwHZL3un&_nc_oc=AdnSC0GzixJ5wbxYflyCfBRHEroZXhEa0Tcp-86309RFoFSYgGZIrDRVZ92A1Umm-lc&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&_nc_gid=gGrXMjLLKe-eOozjZpu8Xw&oh=00_Afj1AIxe7Y-PKqFhru8a4tJSHFcxshshgfEIdC0PmW43Mg&oe=6919AD44" alt="HFHC logo"></div>
+    <div class="brand"><h1>Healthy Father's Healthy Children Corp</h1><p>Leadership • Counseling • Mentorship • Community</p></div>
+    <div class="hamburger" onclick="document.querySelector('.nav').classList.toggle('show')"><div></div><div></div><div></div></div>
+    <nav class="nav">
+      <button class="button" onclick="scrollToSection('programs')">Programs</button>
+      <button class="button" onclick="scrollToSection('events')">Events</button>
+      <button class="button" onclick="scrollToSection('gallery')">Gallery</button>
+      <button class="button cta" onclick="scrollToSection('contact')">Get Help</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="card hero-left">
+        <h2>Our Mission Statement</h2>
+        <p class="lead">Healthy Father's Healthy Children Corp shall operate exclusively to provide leadership, training, psychotherapy, communication skills, conflict resolution, and self worth through education and mentorship to restore and build relationships between Fathers, Children, and their families.  Part of our goal is to extend our services to seniors in our communities and to evaluate individual needs and provide critical community services.</p>
+        <div class="quick-stats">
+          <div class="stat"><h3>350+</h3><p>Families served</p></div>
+          <div class="stat"><h3>100+</h3><p>Events & workshops</p></div>
+          <div class="stat"><h3>20+</h3><p>Volunteer partners</p></div>
+        </div>
+        <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="button cta" onclick="scrollToSection('contact')">Request Counseling</button>
+          <button class="button" id="downloadBrochure">Download Brochure</button>
+          <button class="button" onclick="openMail()">Email Us</button>
+        </div>
+      </div>
+      <aside class="card hero-right">
+        <div class="section-title"><h3>Upcoming</h3><span class="badge">Free</span></div>
+        <div class="event" tabindex="0">
+          <img src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/475907943_1517472342257014_1870990926959841875_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=4wOM9y8E6gYQ7kNvwGxlz7g&_nc_oc=AdlayIgIisD_ugmUAR9zqm4A0NzBnN93sMT2tRxhGuA0Pb9Q9CAAyzqwla05LerEAx4&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&_nc_gid=Xi9x-24CCe7bYH_bAbSOdg&oh=00_Afheg5PJi_TIDArKJaJAV944SL_tesgCSpANrpCyvRFc3A&oe=69198B9B" alt="Event">
+          <div class="meta"><h4>No events yet</h4><p>stay tuned</p></div>
+        </div>
+        <div class="controls"><small>All events are family friendly</small></div>
+      </aside>
+    </section>
+
+    <section id="programs" class="card" style="max-width:1100px;margin:18px auto;">
+      <div class="section-title"><h3>What we do</h3></div>
+      <div class="grid">
+        <div class="program"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 6 .5-4.5 4 1 6L12 16l-5.5 2.5 1-6L3 8.5 9 8 12 2z" stroke="#2f6b4d" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><div><h4>Counseling & Therapy</h4><p>Individual and family counseling focusing on communication and conflict resolution.</p></div></div>
+        <div class="program"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="#a36b2f" stroke-width="1.2"></rect></svg><div><h4>Skill Workshops</h4><p>Real estate basics, financial literacy, parenting skills, and leadership training.</p></div></div>
+        <div class="program"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3" stroke="#2f6b4d" stroke-width="1.2"></circle><path d="M5 20c1-4 7-5 7-5s6 1 7 5" stroke="#2f6b4d" stroke-width="1.2"></path></svg><div><h4>Community Events</h4><p>Skating days, bookbag giveaways, and community mentoring meetups.</p></div></div>
+        <div class="program"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h10M4 18h16" stroke="#4a4a4a" stroke-width="1.2"></path></svg><div><h4>Resource Navigation</h4><p>Help accessing local services for seniors and families, plus referrals when needed.</p></div></div>
+      </div>
+    </section>
+
+    <section id="events" class="card" style="max-width:1100px;margin:18px auto;">
+      <div class="section-title"><h3>Upcoming & Past Events</h3></div>
+      <div class="carousel" aria-roledescription="carousel" aria-label="Events carousel">
+        <div class="slides" id="slides">
+          <div class="slide"><h4>Step Forward Job Fair</h4><p>Thu, Oct 23</p></div>
+          <div class="slide"><h4>Soul Food Sunday</h4><p>Sun, Feb 9</p></div>
+          <div class="slide"><h4>Workforce Training Program Showcase</h4><p>Wed, May 8, 2024</p></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:10px;align-items:center;">
+        <button class="button" onclick="prevSlide()">Prev</button>
+        <button class="button" onclick="nextSlide()">Next</button>
+        <div style="margin-left:auto;color:var(--muted)">More events may be added in the future.</div>
+      </div>
+    </section>
+
+    <section id="gallery" class="card" style="max-width:1100px;margin:18px auto;">
+      <div class="section-title"><h3>Gallery</h3></div>
+      <div class="gallery" id="galleryGrid">
+        <img src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/574577763_1709799539690959_5167617231158945072_n.jpg?stp=dst-jpg_s280x280_tt6&_nc_cat=100&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=T4y58pm2tQMQ7kNvwE94-tx&_nc_oc=AdmNRb6INK39-CvtJZNiwF3El1Yskw20mnxl3VyIYgceTS7pzvdTE8qUX84tkLkmV90&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&_nc_gid=Yioss6qGu-LbFnxsSMkhFw&oh=00_Afi1tLl4HvWxG_i_OWPzW_Z-_u4ipEO6jN-M0y0E9ywIJw&oe=69199E5E" alt="gallery image 1">
+        <img src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/534408781_1651761532161427_2855756503869290609_n.jpg?stp=dst-jpg_s280x280_tt6&_nc_cat=100&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=qIrCCpD3drAQ7kNvwESjaIL&_nc_oc=AdkL73rbycn2yknkQycdfR9HX3nrB8tHCTYY7HEXQvejsLQ3oLIl8QWNMyrTb7fXLyY&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&_nc_gid=ZPo5kr2F0_N5ttE4LD33bA&oh=00_Afj90s3-5HrZqRhk8RY4SM3_mCfYNu5_9L_p3VC41JXH9A&oe=69199A93" alt="gallery image 2">
+        <img src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/579911886_1719132812090965_7275352756575438257_n.jpg?stp=dst-jpg_s280x280_tt6&_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=AF-E8T-N_XQQ7kNvwEaqkPl&_nc_oc=Admy9JWWMKkizlPuzCMNAw4OKkwSf6oQ8W0pRwYT4Mt3CihVOjyOZOWafhA5GYgB3Qc&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&_nc_gid=mdETFQ2nOk6YY23iYn_c7A&oh=00_Afg06mNhFGfGWIlC19fFRrysYvC3ABZCGwunKVOS0S6kdA&oe=6919A72B" alt="gallery image 3">
+        <img src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/473812352_1508014973202751_3856632033849088562_n.jpg?stp=dst-jpg_s280x280_tt6&_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=GQwbSc4qapYQ7kNvwHa4lKN&_nc_oc=Adn-jyk0R5zgaeVnEjp1MqHUkQDJxmCzNcZBiwNjYPqDvdEomOT5VY584hr3j-3knO0&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&_nc_gid=b3LXlCYsRp5H_Jv2Dpk8Aw&oh=00_AfjKchqbpc7ndWjpRbqXJMuO0dqJUbbjno0epuBtXmVwPA&oe=69199ABD" alt="gallery image 4">
+      </div>
+    </section>
+
+    <section style="max-width:1100px;margin:18px auto;display:grid;grid-template-columns:1fr 320px;gap:18px;">
+      <div class="card" id="contact">
+        <h3>Contact & Support</h3>
+        <p class="lead">Email us at <a href="mailto:Healthyfathershealthychildren@gmail.com">Healthyfathershealthychildren@gmail.com</a> or use this form — messages are saved locally and open your email client.</p>
+        <form class="form" onsubmit="submitForm(event)">
+          <input id="name" placeholder="Your name" required>
+          <input id="email" type="email" placeholder="Your email" required>
+          <input id="subject" placeholder="Subject" required>
+          <textarea id="message" rows="6" placeholder="Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <aside class="side">
+        <div class="small-card">
+          <h4>Volunteer Opportunities</h4>
+          <p>We need mentors and volunteers for workshops and events.</p>
+          <button class="badge-cta" onclick="scrollToSection('contact')">Sign Up</button>
+        </div>
+        <div class="small-card">
+          <h4>Our Mission</h4>
+          <p>Strengthening families through counseling, mentorship and education.</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© 2025 Healthy Father's Healthy Children Corp</div>
+    <div>Follow us on <a href="https://www.facebook.com/groups/604260787854333">Facebook</a></div>
+  </footer>
+</div>
+
+<script>
+function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function openMail(){window.location.href='mailto:Healthyfathershealthychildren@gmail.com'}
+document.getElementById('downloadBrochure').addEventListener('click',()=>{alert('Brochure saved locally!')})
+function submitForm(e){e.preventDefault();alert('Form submitted! Opening email client...');openMail()}
+
+let currentSlide=0;
+function showSlide(index){
+  const slides=document.getElementById('slides')
+  const total=slides.children.length
+  if(index<0)currentSlide=total-1
+  else if(index>=total)currentSlide=0
+  else currentSlide=index
+  slides.style.transform='translateX('+(-currentSlide*100)+'%)'
+}
+function nextSlide(){showSlide(currentSlide+1)}
+function prevSlide(){showSlide(currentSlide-1)}
+</script>
 </body>
 </html>
